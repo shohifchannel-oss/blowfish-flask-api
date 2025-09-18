@@ -39,6 +39,12 @@ def decrypt():
     except Exception as e:
         return jsonify({'error': f"Gagal dekripsi: {str(e)}"}), 400
 
+if __name__ == '__main__':
+    import os
+    port = int(os.environ.get('PORT', 8000))
+    app.run(host='0.0.0.0', port=port)
+
 @app.route('/')
 def home():
     return '<h1>🔐 API Enkripsi Blowfish Aktif</h1>'
+
